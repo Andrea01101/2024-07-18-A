@@ -49,10 +49,15 @@ class View(ft.UserControl):
         self.btn_dettagli = ft.ElevatedButton(text="Dettagli",
                                               tooltip="Stampa dettagli del grafo",
                                               on_click=self._controller.handle_dettagli)
+        self.btn_dettagli.disabled = True
 
         self.btn_path = ft.ElevatedButton(text="Cammino",
                                           tooltip="Trova cammino ottimo",
                                           on_click=self._controller.handle_path)
+        self.btn_path.disabled = True
+
+        self._controller.fill_dd_ch()
+        self._controller.fill_dd_localization()
 
         row1 = ft.Row([self.dd_min_ch, self.dd_max_ch, self.btn_graph, self.dd_localization,
                        self.btn_dettagli, self.btn_path],
